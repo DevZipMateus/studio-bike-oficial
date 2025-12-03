@@ -8,6 +8,7 @@ const navLinks = [
   { href: "#servicos", label: "Serviços" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#contato", label: "Contato" },
+  { href: "/vitrine", label: "Vitrine" },
 ];
 
 export function Header() {
@@ -39,12 +40,21 @@ export function Header() {
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-secondary-foreground font-medium hover:text-accent transition-colors duration-200"
-              >
-                {link.label}
-              </a>
+              {link.href.startsWith("/") ? (
+                <a
+                  href={link.href}
+                  className="text-secondary-foreground font-medium hover:text-accent transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  href={link.href}
+                  className="text-secondary-foreground font-medium hover:text-accent transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
