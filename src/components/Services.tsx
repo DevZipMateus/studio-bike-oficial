@@ -49,25 +49,25 @@ export function Services() {
   return (
     <section id="servicos" className="section-padding" style={{ background: "var(--gradient-dark)" }}>
       <div className="container-custom">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <span className="text-accent font-semibold text-xs sm:text-sm uppercase tracking-wider">
             O que fazemos
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-secondary-foreground mt-2 mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-secondary-foreground mt-2 mb-3 sm:mb-4">
             Nossos serviços
           </h2>
-          <p className="text-secondary-foreground/70 max-w-2xl mx-auto">
+          <p className="text-secondary-foreground/70 max-w-2xl mx-auto text-sm sm:text-base">
             Oferecemos serviços especializados respeitando as normas de cada fabricante para garantir a melhor experiência sobre duas rodas.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
               className="group relative bg-secondary-foreground/5 backdrop-blur-sm border border-secondary-foreground/10 rounded-xl overflow-hidden hover:border-accent/50 transition-all duration-300"
             >
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-32 sm:h-40 overflow-hidden">
                 <img
                   src={service.image}
                   alt={`${service.title} - Studio Bike`}
@@ -75,14 +75,14 @@ export function Services() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
               </div>
-              <div className="p-6 pt-4">
-                <div className="w-14 h-14 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 -mt-10 relative z-10">
-                  <service.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
+              <div className="p-4 sm:p-6 pt-3 sm:pt-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-accent/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 -mt-8 sm:-mt-10 relative z-10">
+                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent group-hover:text-accent-foreground transition-colors" />
                 </div>
-                <h3 className="font-display text-xl text-secondary-foreground mb-2">
+                <h3 className="font-display text-lg sm:text-xl text-secondary-foreground mb-1 sm:mb-2">
                   {service.title}
                 </h3>
-                <p className="text-secondary-foreground/60 text-sm leading-relaxed">
+                <p className="text-secondary-foreground/60 text-xs sm:text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -90,10 +90,10 @@ export function Services() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <a
             href="https://wa.me/5599999999999"
-            className="inline-flex items-center justify-center gap-2 bg-highlight hover:bg-highlight/90 text-highlight-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 bg-highlight hover:bg-highlight/90 text-highlight-foreground px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
           >
             Solicitar orçamento
           </a>
