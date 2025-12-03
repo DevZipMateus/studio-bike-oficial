@@ -90,11 +90,11 @@
 
 @layer components {
   .section-padding {
-    @apply py-16 md:py-24 px-4 md:px-8;
+    @apply py-12 px-4 sm:py-16 sm:px-6 md:py-20 md:px-8 lg:py-24;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .text-gradient {
