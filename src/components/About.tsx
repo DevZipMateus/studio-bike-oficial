@@ -1,4 +1,5 @@
 import { Award, Users, Wrench, Target } from "lucide-react";
+import aboutImg from "@/assets/about-mechanic.jpg";
 
 const stats = [
   { icon: Award, value: "10+", label: "Anos de experiência" },
@@ -12,8 +13,23 @@ export function About() {
     <section id="sobre" className="section-padding bg-background">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Image */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)]">
+              <img
+                src={aboutImg}
+                alt="Mecânico trabalhando em bicicleta na oficina Studio Bike"
+                className="w-full h-[400px] md:h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent" />
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-xl -z-10" />
+            <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/20 rounded-xl -z-10" />
+          </div>
+
           {/* Content */}
-          <div className="animate-slide-up">
+          <div className="order-1 lg:order-2 animate-slide-up">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">
               Sobre nós
             </span>
@@ -31,24 +47,24 @@ export function About() {
                 Nossa missão é prestar serviços especializados, visando eficiência e segurança nos equipamentos, respeitando as normas de cada fabricante para proporcionar a melhor experiência ao ciclista amador e profissional.
               </p>
             </div>
-          </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="card-elevated p-6 text-center group hover:bg-secondary hover:text-secondary-foreground transition-colors duration-300"
-              >
-                <stat.icon className="w-10 h-10 mx-auto mb-3 text-accent group-hover:text-highlight transition-colors" />
-                <div className="font-display text-3xl md:text-4xl text-foreground group-hover:text-secondary-foreground mb-1 transition-colors">
-                  {stat.value}
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-muted rounded-lg"
+                >
+                  <stat.icon className="w-6 h-6 mx-auto mb-2 text-accent" />
+                  <div className="font-display text-2xl text-foreground">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground group-hover:text-secondary-foreground/70 transition-colors">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

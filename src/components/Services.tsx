@@ -1,35 +1,44 @@
 import { Wrench, Settings, Cog, Shield, Package, Sparkles } from "lucide-react";
+import suspensionFront from "@/assets/suspension-front.jpg";
+import suspensionRear from "@/assets/suspension-rear.jpg";
+import accessoriesImg from "@/assets/accessories.jpg";
 
 const services = [
   {
     icon: Wrench,
     title: "Manutenção completa",
     description: "Revisão geral da bicicleta com verificação de todos os componentes para garantir segurança e performance.",
+    image: null,
   },
   {
     icon: Settings,
     title: "Suspensão dianteira",
     description: "Serviços especializados em suspensões dianteiras das principais marcas de renome mundial.",
+    image: suspensionFront,
   },
   {
     icon: Cog,
     title: "Suspensão traseira",
     description: "Manutenção e regulagem de amortecedores traseiros de alta performance para todas as modalidades.",
+    image: suspensionRear,
   },
   {
     icon: Shield,
     title: "Peças originais",
     description: "Utilizamos sempre os melhores insumos e peças de reposição originais dos fabricantes.",
+    image: null,
   },
   {
     icon: Package,
     title: "Acessórios",
     description: "Venda de acessórios e equipamentos para ciclistas de todos os níveis.",
+    image: accessoriesImg,
   },
   {
     icon: Sparkles,
     title: "Limpeza especializada",
     description: "Higienização profunda com produtos específicos para preservar sua bike.",
+    image: null,
   },
 ];
 
@@ -53,17 +62,29 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-secondary-foreground/5 backdrop-blur-sm border border-secondary-foreground/10 rounded-xl p-6 hover:bg-secondary-foreground/10 hover:border-accent/50 transition-all duration-300"
+              className="group relative bg-secondary-foreground/5 backdrop-blur-sm border border-secondary-foreground/10 rounded-xl overflow-hidden hover:border-accent/50 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                <service.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
+              {service.image && (
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={`${service.title} - Studio Bike`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
+                </div>
+              )}
+              <div className={`p-6 ${service.image ? 'pt-4' : ''}`}>
+                <div className={`w-14 h-14 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 ${service.image ? '-mt-10 relative z-10' : ''}`}>
+                  <service.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
+                </div>
+                <h3 className="font-display text-xl text-secondary-foreground mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-secondary-foreground/60 text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="font-display text-xl text-secondary-foreground mb-2">
-                {service.title}
-              </h3>
-              <p className="text-secondary-foreground/60 text-sm leading-relaxed">
-                {service.description}
-              </p>
             </div>
           ))}
         </div>
